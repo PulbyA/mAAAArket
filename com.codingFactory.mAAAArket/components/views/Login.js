@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, TextInput, Text, View, UserList } from 'react-native';
+import { Button, StyleSheet, TextInput, Text, View, UserList, TouchableHighlight } from 'react-native';
 
 import About from './About';
 import Home from './Home';
@@ -22,7 +22,8 @@ export class Login extends React.Component {
             userPassword:'',
             error:false,
             isLogin:false,
-            error:false
+            error:false,
+            colorButton:'#FFD281'
         };
         this.userInput = React.createRef();
         this.passwordInput = React.createRef();
@@ -67,12 +68,13 @@ export class Login extends React.Component {
                         ref={this.passwordInput}
                     />
 
-                <Button
-                    title={"Login"}
-                    onPress={() => this.login()}
-                    color="#000"
-                    style={styles.buttons}
-                />
+                <TouchableHighlight style={styles.buttons}>
+                    <Button 
+                    onPress={() => this.login()}          
+                    title="Login"
+                    color={this.state.colorButton}
+                    /> 
+                </TouchableHighlight> 
                 {this.state.error && <Text style={styles.error}>Identifiant ou Mot de passe incorrect</Text>}
                 </View>
             );
@@ -80,46 +82,62 @@ export class Login extends React.Component {
         else {
             return (
                 <View style={styles.container}>
-                    <Button
-                    title="Login"
-                    onPress={() => this.props.navigation.navigate('Login')}
-                    style={styles.buttons}   
-                    />
-                    <Button
-                    title="About"
-                    onPress={() => this.props.navigation.navigate('About')}
-                    style={styles.buttons}   
-                    />
-                    <Button
-                    title="Home"
-                    onPress={() => this.props.navigation.navigate('Home')}
-                    style={styles.buttons}   
-                    />
-                    <Button
-                    title="Pay"
-                    onPress={() => this.props.navigation.navigate('Pay')}
-                    style={styles.buttons}   
-                    />
-                    <Button
-                    title="AccountInformation"
-                    onPress={() => this.props.navigation.navigate('AccountInformation')}
-                    style={styles.buttons}   
-                    />
-                    <Button
-                    title="NewUser"
-                    onPress={() => this.props.navigation.navigate('NewUser')}
-                    style={styles.buttons}   
-                    />
-                    <Button
-                    title="Article"
-                    onPress={() => this.props.navigation.navigate('Article')}
-                    style={styles.buttons}   
-                    />
-                    <Button
-                    title="NewArticle"
-                    onPress={() => this.props.navigation.navigate('NewArticle')}
-                    style={styles.buttons}   
-                    />
+                    <View>
+                        <Button
+                        title="Login"
+                        onPress={() => this.props.navigation.navigate('Login')}
+                        style={styles.buttons}   
+                        />
+                    </View>
+                    <View>
+                        <Button
+                        title="About"
+                        onPress={() => this.props.navigation.navigate('About')}
+                        style={styles.buttons}   
+                        />
+                    </View>
+                    <View>
+                        <Button
+                        title="Home"
+                        onPress={() => this.props.navigation.navigate('Home')}
+                        style={styles.buttons}   
+                        />
+                    </View>
+                    <View>
+                        <Button
+                        title="Pay"
+                        onPress={() => this.props.navigation.navigate('Pay')}
+                        style={styles.buttons}   
+                        />
+                    </View>
+                    <View>
+                        <Button
+                        title="AccountInformation"
+                        onPress={() => this.props.navigation.navigate('AccountInformation')}
+                        style={styles.buttons}   
+                        />
+                    </View>
+                    <View>
+                        <Button
+                        title="NewUser"
+                        onPress={() => this.props.navigation.navigate('NewUser')}
+                        style={styles.buttons}   
+                        />
+                    </View>
+                    <View>
+                        <Button
+                        title="Article"
+                        onPress={() => this.props.navigation.navigate('Article')}
+                        style={styles.buttons}   
+                        />
+                    </View>
+                    <View>
+                        <Button
+                        title="NewArticle"
+                        onPress={() => this.props.navigation.navigate('NewArticle')}
+                        style={styles.buttons}   
+                        />
+                    </View>
                 </View>
                 
             );
@@ -155,10 +173,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     buttons: {
-        marginBottom: 10 ,
-        margin:75,
-        padding:75,
-        justifyContent: 'center',
+        height: 40,
+        width:160,
+        borderRadius:10,
+        marginLeft :50,
+        marginRight:50,
+        marginTop :20,
+        justifyContent :'center'            
     }
 });
 
