@@ -36,7 +36,7 @@ export class Login extends React.Component {
     };
 
     login = () => {
-        if (this.state.userName === "admin" && this.state.userPassword === "admin"){
+        if (this.state.userName === "" && this.state.userPassword === ""){
             this.setState({isLogin : true});
             this.setState({error :false});
         }

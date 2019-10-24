@@ -12,7 +12,15 @@ export default class About extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>About</Text>
+                <Text style={styles.title}>A propos</Text>
+                <Text style={styles.title}> </Text>
+
+                <Text></Text>
+                <Text>Antonin</Text>
+                <Text>Antoine</Text>
+                <Text>Anthony</Text>
+                <Text>Alexandre</Text>
+
             </View>
         )
     }
