@@ -7,7 +7,7 @@ import Pay from './Pay';
 
 import AccountInformation from './Account/AccountInformation';
 import NewUser from './Account/NewUser';
-import Article from './Article/Article';
+import DetailArticle from './Article/DetailArticle';
 import NewArticle from './Article/NewArticle';
 
 import { createAppContainer } from 'react-navigation';
@@ -127,8 +127,8 @@ export class Login extends React.Component {
                     </View>
                     <View>
                         <Button
-                        title="Article"
-                        onPress={() => this.props.navigation.navigate('Article')}
+                        title="DetailArticle"
+                        onPress={() => this.props.navigation.navigate('DetailArticle')}
                         style={styles.buttons}   
                         />
                     </View>
@@ -203,8 +203,8 @@ const AppNavigator = createStackNavigator({
     NewUser: {
         screen: NewUser,
     },    
-    Article: {
-        screen: Article,
+    DetailArticle: {
+        screen: DetailArticle,
     },    
     NewArticle: {
         screen: NewArticle,

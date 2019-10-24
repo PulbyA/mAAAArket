@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, StyleSheet, TextInput, Text, View, Image } from 'react-native';
+import { Button, StyleSheet, TextInput, Text, View } from 'react-native';
 
-export default class Article extends React.Component {
+export default class About extends React.Component {
     static navigatorOptions = {
-        title: 'Article',
+        title: 'About',
     };
 
     render () {
@@ -12,11 +12,15 @@ export default class Article extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Button
-                title="Detail Article"
-                onPress={() => this.props.navigation.navigate('DetailArticle')}
-                style={styles.title}>
-                Article</Button>   
+                <Text style={styles.title}>A propos</Text>
+                <Text style={styles.title}> </Text>
+
+                <Text></Text>
+                <Text>Antonin</Text>
+                <Text>Antoine</Text>
+                <Text>Anthony</Text>
+                <Text>Alexandre</Text>
+
             </View>
         )
     }
