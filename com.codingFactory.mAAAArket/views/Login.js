@@ -2,6 +2,17 @@ import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, UserList, TouchableHighlight } from 'react-native';
 import Navigation from './Navigation'
 
+import firebase from 'firebase';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCTbgszuHpCwPFQtDMVTbxeajlNwUDeCwY",
+    authDomain: "cf-maaaarket.firebaseapp.com",
+    databaseURL: "https://cf-maaaarket.firebaseio.com",
+    storageBucket: "cf-maaaarket.appspot.com"
+};
+firebase.initializeApp(firebaseConfig);
+
+
 export default class Login extends React.Component {
 
     static navigatorOptions = {

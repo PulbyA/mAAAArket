@@ -5,6 +5,7 @@ const { width, height } = Dimensions.get('window');
 
 import CustomHeader from '../components/CustomHeader';
 import CustomFooter from '../components/CustomFooter';
+import Article from '../components/Article';
 
 export default class Home extends React.Component {
 
@@ -25,19 +26,25 @@ export default class Home extends React.Component {
 
         return (
 
-            <View>
+            <View style={styles.container}>                
                 <CustomHeader 
                     Navigat={this.props.navigation.navigate('About')} 
                     Title={this.state.title} 
                 />
 
-                <View style={styles.container}>                
-                    <Button
-                    title="About"
-                    onPress={() => this.props.navigation.navigate('About')}
-                    style={styles.buttons} 
-                    /> 
-                </View>
+                <Text style={styles.title}>Home</Text>
+                <ScrollView style={styles.articleFlex}>
+                    <Article productName="ProduitTest1" type="Test" sexe= "Apache Helicopter" 
+                        age= "Adulte" size= "L" vendorName= "invalidUsername" price="over 9000" 
+                    />
+                    <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
+                        age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
+                    />
+                    <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
+                        age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
+                    />
+                </ScrollView>
+                
 
                 <CustomFooter style={styles.footer}  />
 
@@ -58,7 +65,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         // alignItems: 'center',
         // justifyContent: 'center',
-        padding: 40,
         height: (height - 160)
     },
     buttons: {
@@ -84,4 +90,10 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         marginBottom: 36
     },
+    articleFlex: {
+        flex:0,
+        flexDirection:'row',
+        flexWrap: 'wrap'
+    }
+    
 });

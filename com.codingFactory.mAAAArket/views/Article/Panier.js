@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, Image } from 'react-native';
+import LignePanier from '../../components/LignePanier';
 
-export default class Pay extends React.Component {
+
+export default class Panier extends React.Component {
     static navigatorOptions = {
-        title: 'Pay',
+        title: 'Panier',
     };
 
     render () {
@@ -12,30 +14,24 @@ export default class Pay extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>Pay</Text>
+                <LignePanier/>
+                <LignePanier/>
             </View>
+            
         )
     }
 
 }
 
 const styles = StyleSheet.create({
-    title : {
-        fontSize: 20
-    },
+    
     container: {
         flex: 1,
+        flexDirection: 'column',
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
-    },
-    buttons: {
-        marginBottom: 10,
-        margin: 75,
-        padding: 5
-    },
-    tab: {
-        padding: 20,
-        height: 100,
     }
+    
+    
 });
