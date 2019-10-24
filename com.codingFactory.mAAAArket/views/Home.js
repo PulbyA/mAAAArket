@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, TextInput, Text, View, Image } from 'react-native';
+import { Button, StyleSheet, TextInput, Text, View, Image, ScrollView } from 'react-native';
 import Article from '../components/Article';
 
 export default class Home extends React.Component {
@@ -14,14 +14,17 @@ export default class Home extends React.Component {
             <View style={styles.container}>
                 
                 <Text style={styles.title}>Home</Text>
-                <View style={styles.articleFlex}>
-                    <Article style={styles.articles} productName="ProduitTest1" type="Test" sexe= "Apache Helicopter" 
-                        age= "Adult" size= "L" vendorName= "invalidUsername" price="over 9000" 
+                <ScrollView style={styles.articleFlex}>
+                    <Article productName="ProduitTest1" type="Test" sexe= "Apache Helicopter" 
+                        age= "Adulte" size= "L" vendorName= "invalidUsername" price="over 9000" 
                     />
-                    <Article style={styles.articles} productName="Short sale" type="Pantalons" sexe= "Homme" 
-                        age= "10-12 ans" size= "S" vendorName= "Gamin" price="500"
+                    <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
+                        age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
                     />
-                </View>
+                    <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
+                        age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
+                    />
+                </ScrollView>
                 <Button
                 title="About"
                 onPress={() => this.props.navigation.navigate('About')}
@@ -54,14 +57,9 @@ const styles = StyleSheet.create({
         height: 100,
     },
     articleFlex: {
-        flex:2,
-        flexDirection:'row'
-    },
-    articles: {
-        flex:1,
-        borderRadius: 4,
-        borderWidth: 0.5,
-        borderColor: '#d6d7da',
+        flex:0,
+        flexDirection:'row',
+        flexWrap: 'wrap'
     }
     
 });
