@@ -1,19 +1,13 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, UserList, TouchableHighlight } from 'react-native';
+import Navigation from './Navigation'
 
-import About from './About';
-import Home from './Home';
-import Pay from './Pay';
+export default class Login extends React.Component {
 
-import AccountInformation from './Account/AccountInformation';
-import NewUser from './Account/NewUser';
-import DetailArticle from './Article/DetailArticle';
-import NewArticle from './Article/NewArticle';
-
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-
-export class Login extends React.Component {
+    static navigatorOptions = {
+        title: 'Login',
+        header: null,
+    };
 
     constructor(props){
         super(props);
@@ -23,7 +17,7 @@ export class Login extends React.Component {
             error:false,
             isLogin:false,
             error:false,
-            colorButton:'#FFD281'
+            colorButton:'#d9974a'
         };
         this.userInput = React.createRef();
         this.passwordInput = React.createRef();
@@ -48,6 +42,8 @@ export class Login extends React.Component {
     };
 
     render() {
+        const {navigate} = Navigation;
+
         if (!this.state.isLogin) {
             return (
                 <View style={styles.container}>
@@ -81,6 +77,7 @@ export class Login extends React.Component {
         }
         else {
             return (
+                
                 <View style={styles.container}>
                     <View>
                         <Button
@@ -155,7 +152,7 @@ const styles = StyleSheet.create({
         marginBottom: 300
     },
     title : {
-        color : '#FFD281',
+        color : '#d9974a',
         fontSize : 68,
         alignItems: "stretch",
         textAlign :'center',
@@ -182,33 +179,3 @@ const styles = StyleSheet.create({
         justifyContent :'center'            
     }
 });
-
-const AppNavigator = createStackNavigator({
-    Login: {
-        screen: Login,
-    },
-    About: {
-        screen: About,
-    },    
-    Home: {
-        screen: Home,
-    },    
-    Pay: {
-        screen: Pay,
-    },    
-    AccountInformation: {
-        screen: AccountInformation,
-    },    
-    NewUser: {
-        screen: NewUser,
-    },    
-    DetailArticle: {
-        screen: DetailArticle,
-    },    
-    NewArticle: {
-        screen: NewArticle,
-    }
-
-});
-
-export default createAppContainer(AppNavigator);
