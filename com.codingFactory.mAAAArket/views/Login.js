@@ -9,6 +9,7 @@ import AccountInformation from './Account/AccountInformation';
 import NewUser from './Account/NewUser';
 import DetailArticle from './Article/DetailArticle';
 import NewArticle from './Article/NewArticle';
+import Panier from './Article/Panier';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -210,6 +211,9 @@ const AppNavigator = createStackNavigator({
     },
     DetailArticle: {
         screen: DetailArticle,
+    },
+    Panier: {
+        screen: Panier,
     }
 
 });

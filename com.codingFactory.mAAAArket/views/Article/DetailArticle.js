@@ -25,16 +25,18 @@ export default class DetailArticle extends React.Component {
                 Nulla diam elit, accumsan faucibus augue euismod, gravida lobortis eros. Nam eget nisl tempor, sodales ex nec, pharetra erat. Mauris vitae vulputate quam. In vitae condimentum velit. In eleifend diam laoreet lorem rhoncus, quis efficitur lacus convallis. Maecenas nec elementum libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc blandit ante est, in lobortis lectus consectetur a. Curabitur blandit erat et purus congue facilisis. Proin tempor tempor tincidunt. Etiam ullamcorper, augue eu feugiat sagittis, metus orci blandit est, non vulputate dui nisi ac metus. Fusce ornare mi ac gravida viverra. Duis accumsan eleifend enim, quis posuere quam tincidunt sit amet. Sed in dapibus ante, non posuere lorem. Duis volutpat mauris vel augue commodo, a consequat sem faucibus. Ut vitae bibendum urna.
 
                 Vivamus vitae volutpat sem, a varius elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed diam turpis, tincidunt ac facilisis bibendum, lacinia a arcu. Donec mattis tellus a mi vehicula posuere. Aliquam iaculis tincidunt interdum. Ut non eros faucibus, maximus leo vel, tempus sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum viverra id ante volutpat viverra. Sed nec accumsan est, nec auctor odio. Nam vel nisi id felis ornare volutpat at sit amet neque. Proin volutpat, lorem vel hendrerit sagittis, nunc erat tincidunt dolor, ac ultrices leo eros hendrerit dolor. Mauris id pretium diam, sed interdum ex. Donec auctor turpis id rhoncus luctus.
-
-                Curabitur vel dolor at metus rhoncus iaculis quis id nunc. Duis consequat ut sapien eget laoreet. Integer quis mi eleifend, porta urna ut, dapibus ipsum. Praesent sit amet odio nunc. Fusce eu placerat sem, at efficitur est. Morbi sit amet blandit orci. Phasellus hendrerit ultricies vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae tristique tortor. Sed euismod metus eget quam bibendum viverra.
-
-                Phasellus tristique metus non facilisis pharetra. Ut id ipsum cursus, interdum ipsum in, faucibus libero. Ut ac dictum ex. Donec non arcu id nibh tempus bibendum eu et diam. Integer ut viverra purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam pulvinar faucibus lorem eu bibendum. Duis bibendum arcu at leo varius, vel scelerisque justo feugiat. Nunc velit dolor, laoreet vel ipsum eget, aliquet vehicula felis. Quisque eros eros, vestibulum vitae ultrices iaculis, porta non est. Curabitur sit amet mi fringilla, mattis quam vel, ullamcorper ipsum. Nullam ut condimentum purus. Aenean tempor eleifend bibendum. Proin scelerisque venenatis turpis sed finibus. Nulla ullamcorper magna urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </Text>
                 </ScrollView>
                 <Text style={styles.text}>Donenz votre avis</Text>
                 <Text></Text>
+                <ScrollView>
                 <TextInput maxLength={100}
                 style={styles.commentaire}>Commentaire</TextInput>
+                </ScrollView>
+                <Button title="Voir votre Panier"
+                onPress={() => this.props.navigation.navigate('Panier')}
+                style={styles.button}>
+                </Button>
                 
             </View>
         )
@@ -85,5 +87,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         fontSize: 20
     },
+    
     
 });
