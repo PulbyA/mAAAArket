@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, UserList, TouchableHighlight } from 'react-native';
-
+import firebase from 'firebase';
 import About from './About';
 import Home from './Home';
 import Pay from './Pay';
@@ -13,6 +13,15 @@ import Panier from './Article/Panier';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCTbgszuHpCwPFQtDMVTbxeajlNwUDeCwY",
+    authDomain: "cf-maaaarket.firebaseapp.com",
+    databaseURL: "https://cf-maaaarket.firebaseio.com",
+    storageBucket: "cf-maaaarket.appspot.com"
+};
+
+firebase.initializeApp(firebaseConfig);
 
 export class Login extends React.Component {
 
