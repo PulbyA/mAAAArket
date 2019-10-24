@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, Image } from 'react-native';
 
-export default class Article extends React.Component {
+export default class DetailArticle extends React.Component {
     static navigatorOptions = {
-        title: 'Article',
+        title: 'DetailArticle',
     };
 
     render () {
@@ -12,7 +12,7 @@ export default class Article extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>Article</Text>
+                <Text style={styles.title}>Detail Article</Text>
             </View>
         )
     }
