@@ -12,7 +12,11 @@ export default class Article extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>Article</Text>
+                <Button
+                title="Detail Article"
+                onPress={() => this.props.navigation.navigate('DetailArticle')}
+                style={styles.title}>
+                Article</Button>   
             </View>
         )
     }

@@ -12,6 +12,7 @@ import NewArticle from './Article/NewArticle';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import DetailArticle from './Article/DetailArticle';
 
 export class Login extends React.Component {
 
@@ -36,7 +37,7 @@ export class Login extends React.Component {
     };
 
     login = () => {
-        if (this.state.userName === "admin" && this.state.userPassword === "admin"){
+        if (this.state.userName === "" && this.state.userPassword === ""){
             this.setState({isLogin : true});
             this.setState({error :false});
         }
@@ -207,6 +208,9 @@ const AppNavigator = createStackNavigator({
     },    
     NewArticle: {
         screen: NewArticle,
+    },
+    DetailArticle: {
+        screen: DetailArticle,
     }
 
 });
