@@ -18,8 +18,13 @@ export default class Article extends React.Component{
                 <Text style={styles.texts}>Nom produit : {productName}</Text>
                 <Text style={styles.texts}>Taille : {size}</Text>
                 <Text style={styles.texts}>Prix : {price}€</Text>
-            </View>
             
+                <Button
+                title="Detail Article"
+                onPress={() => this.props.navigation.navigate('DetailArticle')}
+                style={styles.title}>
+                Article</Button>   
+            </View>
         )
     }
 }

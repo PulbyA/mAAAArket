@@ -207,6 +207,9 @@ const AppNavigator = createStackNavigator({
     },    
     NewArticle: {
         screen: NewArticle,
+    },
+    DetailArticle: {
+        screen: DetailArticle,
     }
 
 });
