@@ -12,7 +12,6 @@ import NewArticle from './Article/NewArticle';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import DetailArticle from './Article/DetailArticle';
 
 export class Login extends React.Component {
 

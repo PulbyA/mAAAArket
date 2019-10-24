@@ -8,7 +8,13 @@ export default class Article extends React.Component{
         } = this.props
         const imgArticle = <Image source={require("./../assets/" + imgName)}/>
         return (
-            
+            <View style={styles.container}>
+                <Button
+                title="Detail Article"
+                onPress={() => this.props.navigation.navigate('DetailArticle')}
+                style={styles.title}>
+                Article</Button>   
+            </View>
         )
     }
 }
