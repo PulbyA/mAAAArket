@@ -11,7 +11,7 @@ export default headerStyles = StyleSheet.create({
         backgroundColor: '#fff',
         // alignItems: 'center',
         // justifyContent: 'center',
-        height: (height - 160)
+        height: height
     },
     buttons: {
         marginBottom: 10 ,
