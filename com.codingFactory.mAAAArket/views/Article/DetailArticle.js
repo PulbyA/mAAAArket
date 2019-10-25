@@ -46,8 +46,7 @@ class DetailArticle extends React.Component {
         const { navigation } = this.props;
         return (
             <View style={headerStyles.container}>
-                <CustomHeader title={'Detail Article'} navigation={this.props.navigation}/>
-    
+                <CustomHeader title={"Detail de l'article"} navigation={this.props.navigation}/>
                 <View style={styles.container}>
                     <ScrollView>
                         <Text style={styles.title}>{JSON.stringify(navigation.getParam('name')).replace(/"/gi, '')}</Text>

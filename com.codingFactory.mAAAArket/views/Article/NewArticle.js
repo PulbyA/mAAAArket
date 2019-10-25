@@ -142,8 +142,8 @@ export default class NewArticle extends React.Component {
 
         return (
             <View style={headerStyles.container}>
-                <CustomHeader title={'Nouvelle Article'} navigation={this.props.navigation}/>
 
+                <CustomHeader title={'Nouvelle Article'} navigation={this.props.navigation}/>
                 <View style={styles.container}>
                     <ScrollView>
                         <Text style={styles.title}>Vendez votre vêtement : {"\n"}</Text>

@@ -57,6 +57,7 @@ export default class Home extends React.Component {
         return (
             
             <View style={headerStyles.container}>
+
                 <CustomHeader title={'Accueil'} navigation={this.props.navigation}/>            
                     <ScrollView>
                         {allArticles}
