@@ -31,7 +31,7 @@ class DetailArticle extends React.Component {
 
     _displayFavoriteImage() {
         var sourceImage = require('../../assets/favorite/favorite.png')
-        if (this.props.favoritesArticles.findIndex(item => item.id === this.state.titleArticle.id) !== -1) {
+        if (this.props.favoritesArticles.findIndex(item => item.id === this.props.id) !== -1) {
           sourceImage = require('../../assets/favorite/favorite_border.png')
         }
         console.log(this.props.id);
