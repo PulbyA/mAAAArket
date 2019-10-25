@@ -11,19 +11,25 @@ import NewUser from './Account/NewUser';
 
 import DetailArticle from './Article/DetailArticle';
 import NewArticle from './Article/NewArticle';
+import Panier from './Article/Panier';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import CustomFooter from '../components/CustomFooter';
-import CustomHeader from '../components/CustomHeader';
+
 
 const NavigationApp = createStackNavigator({
 
     Login: {
         screen: Login,
+        navigationOptions: {
+            header: null,
+        },
     },
     About: {
         screen: About,
+        navigationOptions: {
+            header: null,
+        },
     },
     Home: {
         screen: Home,
@@ -33,24 +39,39 @@ const NavigationApp = createStackNavigator({
     },    
     Pay: {
         screen: Pay,
+        navigationOptions: {
+            header: null,
+        },
     },    
     AccountInformation: {
         screen: AccountInformation,
+        navigationOptions: {
+            header: null,
+        },
     },    
     NewUser: {
         screen: NewUser,
+        navigationOptions: {
+            header: null,
+        },
     },    
     DetailArticle: {
         screen: DetailArticle,
+        navigationOptions: {
+            header: null,
+        },
     },    
     NewArticle: {
         screen: NewArticle,
+        navigationOptions: {
+            header: null,
+        },
     },
-    CustomFooter: {
-        screen :CustomFooter,
-    },
-    CustomHeader: {
-        screen :CustomHeader
+    Panier: {
+        screen: Panier,
+        navigationOptions: {
+            header: null,
+        },
     }
 });
 

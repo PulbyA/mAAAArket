@@ -2,28 +2,55 @@ import React from 'react';
 import {TextInput, Button, Text, View, Image ,StyleSheet} from 'react-native';
 
 export default class Article extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            productName: this.props.productName,
+            description: this.props.description,
+            type: this.props.type,
+            sexe: this.props.sexe,
+            age: this.props.age,
+            size: this.props.size,
+            vendorName: this.props.vendorName,
+            price: this.props.price
+        }
+    }
+
     render(){
-        const{
+        /*const{
             productName,
+            description,
             type,
             sexe,
             age,
             size,
             vendorName,
             price
-        } = this.props
+        } = this.props*/
         return (
-            <View onClick={() => this.props.navigation.navigate('About')} style={styles.articles}>
+            <View style={styles.articles}>
                 <Text style={styles.texts}>IMG en construction</Text>
-                <Text style={styles.texts}>Nom produit : {productName}</Text>
-                <Text style={styles.texts}>Taille : {size}</Text>
-                <Text style={styles.texts}>Prix : {price}€</Text>
+                <Text style={styles.texts}>{this.state.productName}</Text>
+                <Text style={styles.texts}>{this.state.size}</Text>
+                <Text style={styles.texts}>{this.state.price}€</Text>
             
                 <Button
                 title="Detail Article"
-                onPress={() => this.props.navigation.navigate('DetailArticle')}
-                style={styles.title}>
-                Article</Button>   
+                onPress={() => {
+                    this.props.navigation.navigate('DetailArticle', {
+                        name: this.state.productName,
+                        description: this.state.description,
+                        type: this.state.type,
+                        sexe: this.state.sexe,
+                        age: this.state.age,
+                        size: this.state.size,
+                        vendorName: this.state.vendorName,
+                        price: this.state.price
+                    });
+                }}
+                style={styles.title}
+                />
+ 
             </View>
         )
     }

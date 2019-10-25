@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, UserList, TouchableHighlight } from 'react-native';
-import Navigation from './Navigation'
+//import Navigation from './Navigation'
 
 import firebase from 'firebase';
+import Home from './Home';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCTbgszuHpCwPFQtDMVTbxeajlNwUDeCwY",
@@ -53,7 +54,6 @@ export default class Login extends React.Component {
     };
 
     render() {
-        const {navigate} = Navigation;
 
         if (!this.state.isLogin) {
             return (
@@ -87,7 +87,7 @@ export default class Login extends React.Component {
             );
         }
         else {
-            return (
+            /*return (
                 
                 <View style={styles.container}>
                     <View>
@@ -148,6 +148,9 @@ export default class Login extends React.Component {
                     </View>
                 </View>
                 
+            );*/
+            return(
+                <Home navigation={this.props.navigation}/>
             );
 
         }

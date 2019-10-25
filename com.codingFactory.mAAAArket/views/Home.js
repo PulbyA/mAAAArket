@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, ScrollView, Image, TouchableOpacity, Dimensions } from 'react-native';
-import Navigation from './Navigation'
+//import Navigation from './Navigation'
 const { width, height } = Dimensions.get('window');
 
 import CustomHeader from '../components/CustomHeader';
 import CustomFooter from '../components/CustomFooter';
 import Article from '../components/Article';
+
+import firebase from "firebase";
 
 export default class Home extends React.Component {
 
@@ -17,39 +19,60 @@ export default class Home extends React.Component {
         super(props);
         this.state={
             title: 'Accueil',
+            article: {},
+            articleData: []
         };
     };
 
+    readArticleData = () => {
+        firebase.database().ref('articles/').once('value', (snapshot) => {
+            this.setState({ article :  snapshot.val()}, () => {
+                console.log(this.state.article);
+            });
+        });
+    };
+
+    componentWillMount(){
+        this.readArticleData();
+    }
+
     render () {
-
-        const {navigate} = Navigation;
-
+        let arrayHomeWorks = Object.values(this.state.article);
+            const allArticles = arrayHomeWorks.map((myArticle)=>{
+            /*this.addHomeWorkData(
+                myArticle["age"],
+                myArticle["desc"],
+                myArticle["img"],
+                myArticle["name"],
+                myArticle["nomVendeur"],
+                myArticle["prix"],
+                myArticle["sexe"],
+                myArticle["taille"],
+                myArticle["type"]);*/
+            return(
+                <Article 
+                    productName={myArticle["name"]} 
+                    description={myArticle["desc"]} 
+                    type={myArticle["type"]} 
+                    sexe={myArticle["sexe"]}
+                    age= {myArticle["age"]}
+                    size= {myArticle["taille"]} 
+                    vendorName= {myArticle["nomVendeur"]} 
+                    price={myArticle["prix"]} 
+                    navigation={this.props.navigation}
+                />
+            );
+        })
         return (
 
             <View style={styles.container}>                
-                <CustomHeader 
-                    Navigat={this.props.navigation.navigate('About')} 
-                    Title={this.state.title} 
-                />
-
-                <Text style={styles.title}>Home</Text>
-                <ScrollView style={styles.articleFlex}>
-                    <Article productName="ProduitTest1" type="Test" sexe= "Apache Helicopter" 
-                        age= "Adulte" size= "L" vendorName= "invalidUsername" price="over 9000" 
-                    />
-                    <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
-                        age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
-                    />
-                    <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
-                        age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
-                    />
+                <CustomHeader title={this.state.title} navigation={this.props.navigation}/>
+                <ScrollView>
+                    {allArticles}
                 </ScrollView>
                 
 
-                <CustomFooter style={styles.footer}  />
-
-
-
+                <CustomFooter style={styles.footer} navigation={this.props.navigation} />
             </View>
         )
     }
@@ -91,7 +114,7 @@ const styles = StyleSheet.create({
         marginBottom: 36
     },
     articleFlex: {
-        flex:0,
+        flex:1,
         flexDirection:'row',
         flexWrap: 'wrap'
     }

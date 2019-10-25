@@ -1,5 +1,9 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, Image } from 'react-native';
+import CustomHeader from '../../components/CustomHeader';
+import CustomFooter from '../../components/CustomFooter';
+import headerStyles from '../../styles/HeaderStyles';
+
 
 export default class AccountInformation extends React.Component {
     static navigatorOptions = {
@@ -11,8 +15,14 @@ export default class AccountInformation extends React.Component {
         const {navigate} = this.props.navigation;
 
         return (
-            <View style={styles.container}>
-                <Text style={styles.title}>Account Information</Text>
+            <View style={headerStyles.container}>
+                <CustomHeader title={'Panier'} navigation={this.props.navigation}/>
+
+                <View style={styles.container}>
+                    <Text style={styles.title}>Account Information</Text>
+                </View>
+
+                <CustomFooter navigation={this.props.navigation}/>
             </View>
         )
     }

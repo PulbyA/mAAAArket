@@ -1,5 +1,8 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, Image, TouchableOpacity} from 'react-native';
+import CustomHeader from '../components/CustomHeader';
+import CustomFooter from '../components/CustomFooter';
+import headerStyles from '../styles/HeaderStyles';
 
 export default class About extends React.Component {
     static navigatorOptions = {
@@ -8,25 +11,27 @@ export default class About extends React.Component {
 
     render () {
 
-        const {navigate} = this.props.navigation;
-
         return (
-            <View style={styles.container}>
-                <Text style={styles.title}>A propos</Text>
-                <Text style={styles.title}> </Text>
+            <View style={headerStyles.container}>
+                <CustomHeader title={'À propos'} navigation={this.props.navigation}/>
+                <View style={styles.containerAbout}>
+                    <Text style={styles.title}>A propos</Text>
+                    <Text style={styles.title}> </Text>
 
-                <Text></Text>
-                <Text>Antonin</Text>
-                <Text>Antoine</Text>
-                <Text>Anthony</Text>
-                <Text>Alexandre</Text>
-                <Text></Text>
-                <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Home')}>
-                    <Image style={styles.img_button}
-                        source={require('../assets/header/home.png')}
-                    />
-                </TouchableOpacity>
+                    <Text></Text>
+                    <Text>Antonin</Text>
+                    <Text>Antoine</Text>
+                    <Text>Anthony</Text>
+                    <Text>Alexandre</Text>
+                    <Text></Text>
+                    <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Home')}>
+                        <Image style={styles.img_button}
+                            source={require('../assets/header/home.png')}
+                        />
+                    </TouchableOpacity>
 
+                </View>
+                <CustomFooter navigation={this.props.navigation}/>
             </View>
         )
     }
@@ -37,7 +42,7 @@ const styles = StyleSheet.create({
     title : {
         fontSize:20
     },
-    container: {
+    containerAbout: {
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',

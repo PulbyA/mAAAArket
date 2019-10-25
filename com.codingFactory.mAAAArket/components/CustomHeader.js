@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Header } from 'react-native-elements';
-import Navigation from '../views/Navigation'
+//import Navigation from '../views/Navigation';
 
 export default class CustomHeader extends React.Component{
 
@@ -14,14 +14,7 @@ export default class CustomHeader extends React.Component{
     };
 
     render(){
-
-        const {navigate} = Navigation;
-
-        const {
-            Navigat, 
-            Title
-        } = this.props;
-
+        
         return (
 
             <View >
@@ -29,19 +22,19 @@ export default class CustomHeader extends React.Component{
                         statusBarProps={{ barStyle: 'dark-content' }}
                         barStyle="dark-content"
                         leftComponent={
-                            <TouchableOpacity activeOpacity={0.5} onPress={() => Navigat}>
-                            <Image style={styles.img_logo}
-                                source={require('../assets/header/logo_2.png')}
+                            <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Home')}>
+                            <Image style={styles.img_button}
+                                source={require('../assets/header/home.png')}
                             />
                             </TouchableOpacity>
                         }
                         
-                        centerComponent={{ text: Title, style: { color: '#fff', fontSize: 20 } }}
+                        centerComponent={{ text: this.props.title, style: { color: '#fff', fontSize: 20 } }}
                         
                         rightComponent={
-                            <TouchableOpacity activeOpacity={0.5} onPress={() => Navigat} >
-                            <Image style={styles.img_button}
-                                source={require('../assets/header/home.png')}
+                            <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('About')} >
+                            <Image style={styles.img_logo}
+                                source={require('../assets/header/logo_2.png')}
                             />
                             </TouchableOpacity>
                         }
@@ -79,8 +72,7 @@ const styles = StyleSheet.create({
     },
     img_button: {
         width: 35,
-        height: 35,
-        color: '#ffffff',
+        height: 35
     },
     img_logo: {
         width: 100,
