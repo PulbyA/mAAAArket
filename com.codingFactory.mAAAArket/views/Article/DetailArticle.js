@@ -34,7 +34,6 @@ class DetailArticle extends React.Component {
         if (this.props.favoritesArticles.findIndex(item => item.id === this.props.id) !== -1) {
           sourceImage = require('../../assets/favorite/favorite_border.png')
         }
-        console.log(this.props.id);
         return (
           <Image
             style={styles.favorite_image}
@@ -47,7 +46,7 @@ class DetailArticle extends React.Component {
         const { navigation } = this.props;
         return (
             <View style={headerStyles.container}>
-                <CustomHeader title={'Panier'} navigation={this.props.navigation}/>
+                <CustomHeader title={'Detail Article'} navigation={this.props.navigation}/>
     
                 <View style={styles.container}>
                     <ScrollView>

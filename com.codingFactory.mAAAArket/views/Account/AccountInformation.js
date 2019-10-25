@@ -15,7 +15,7 @@ export default class AccountInformation extends React.Component {
 
         return (
             <View style={headerStyles.container}>
-                <CustomHeader title={'Panier'} navigation={this.props.navigation}/>
+                <CustomHeader title={'Compte'} navigation={this.props.navigation}/>
 
                 <View style={styles.container}>
                     <Text style={styles.title}>Account Information</Text>
