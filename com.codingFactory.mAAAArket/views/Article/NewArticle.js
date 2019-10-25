@@ -112,7 +112,7 @@ export default class NewArticle extends React.Component {
                 return(
                     <Picker
                         selectedValue={this.state.taille}
-                        style={{height: 50, width: 180}}
+                        style={{ width: 180}}
                         onValueChange={(itemValue, itemIndex) =>
                             this.setState({taille: itemValue})
                         }>
@@ -159,7 +159,7 @@ export default class NewArticle extends React.Component {
                         <Text style={styles.text}>{"\n"}Choisissez l'âge du destinataire du vêtement : {"\n"}</Text>
                         <Picker
                             selectedValue={this.state.age}
-                            style={{height: 50, width: 180}}
+                            style={{ width: 180}}
                             onValueChange={(itemValue, itemIndex) =>
                                 this.selectAge(itemValue)
                             }>
@@ -177,7 +177,7 @@ export default class NewArticle extends React.Component {
                         <Text style={styles.text}>{"\n"}Choisissez le sexe du destinataire du vêtement : {"\n"}</Text>
                         <Picker
                             selectedValue={this.state.sexe}
-                            style={{height: 50, width: 180}}
+                            style={{ width: 180}}
                             onValueChange={(itemValue, itemIndex) =>
                                 this.setState({sexe: itemValue})
                             }>
@@ -189,7 +189,7 @@ export default class NewArticle extends React.Component {
                         <Text style={styles.text}>{"\n"}Choisissez le type de votre vêtement : {"\n"}</Text>
                         <Picker
                             selectedValue={this.state.type}
-                            style={{height: 50, width: 180}}
+                            style={{width: 180}}
                             onValueChange={(itemValue, itemIndex) =>
                                 this.setState({type: itemValue})
                             }>
