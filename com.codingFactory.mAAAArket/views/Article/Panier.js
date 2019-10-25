@@ -15,7 +15,7 @@ class Panier extends React.Component {
     render () {
         return (
             <View style={headerStyles.container}>
-                <CustomHeader title={'Panier'} navigation={this.props.navigation}/>
+                <CustomHeader title={'Votre Panier'} navigation={this.props.navigation}/>
                 <View style={styles.container}>
                     <View style={styles.container_2}> 
                     </View>
