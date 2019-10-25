@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
+
 import { Header } from 'react-native-elements';
 
 const { width, height } = Dimensions.get('window');
@@ -34,7 +35,7 @@ export default class CustomFooter extends React.Component{
                         
                         <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('NewArticle')} >
                         <Image style={styles.img_button}
-                            source={require('../assets/header/panier.png')}
+                            source={require('../assets/addArticle.png')}
                         />
                         </TouchableOpacity>
                     }

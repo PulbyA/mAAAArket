@@ -1,17 +1,46 @@
 import React from 'react';
-import { Button, StyleSheet, TextInput, Text, View, Image } from 'react-native';
+import { Button, StyleSheet, TextInput, Text, View, Image, TouchableOpacity } from 'react-native';
 import { BorderlessButton, ScrollView } from 'react-native-gesture-handler';
 import CustomHeader from '../../components/CustomHeader';
 import CustomFooter from '../../components/CustomFooter';
 import headerStyles from '../../styles/HeaderStyles';
+import { connect } from 'react-redux'
 
-export default class DetailArticle extends React.Component {
+
+
+class DetailArticle extends React.Component {
+    
     static navigatorOptions = {
         title: 'DetailArticle',
     };
-
+    
     constructor(props){
         super(props);
+    };
+
+    _toggleFavorite() {
+        const action = { 
+            type: "TOGGLE_FAVORITE", 
+            value: { 
+                name: JSON.stringify(this.props.navigation.getParam('name')).replace(/"/gi, ''), 
+                picture: "", 
+                price: JSON.stringify(this.props.navigation.getParam('price')).replace(/"/gi, '')} 
+            }
+        this.props.dispatch(action)
+    }
+
+    _displayFavoriteImage() {
+        var sourceImage = require('../../assets/favorite/favorite.png')
+        if (this.props.favoritesArticles.findIndex(item => item.id === this.state.titleArticle.id) !== -1) {
+          sourceImage = require('../../assets/favorite/favorite_border.png')
+        }
+        console.log(this.props.id);
+        return (
+          <Image
+            style={styles.favorite_image}
+            source={sourceImage}
+          />
+        )
     }
 
     render () {
@@ -47,6 +76,11 @@ export default class DetailArticle extends React.Component {
                         onPress={() => this.props.navigation.navigate('Panier')}
                         style={styles.button}>
                         </Button>
+                        <TouchableOpacity
+                            style={styles.favorite_container}
+                            onPress={() => this._toggleFavorite()}>
+                            {this._displayFavoriteImage()}
+                        </TouchableOpacity>
                     </ScrollView>
                 </View>
                 <CustomFooter navigation={this.props.navigation}/>
@@ -99,6 +133,23 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         fontSize: 20
     },
-    
+    favorite_image: {
+        width: 40,
+        height: 40
+    }
     
 });
+
+const mapStateToProps = (state) => {
+    return {
+       favoritesArticles: state.favoritesArticles
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      dispatch: (action) => { dispatch(action) }
+    }
+  }
+
+  export default connect(mapStateToProps, mapDispatchToProps)(DetailArticle)

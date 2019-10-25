@@ -146,6 +146,13 @@ export default class Login extends React.Component {
                         style={styles.buttons}   
                         />
                     </View>
+                    <View>
+                        <Button
+                        title="Panier"
+                        onPress={() => this.props.navigation.navigate('Panier')}
+                        style={styles.buttons}   
+                        />
+                    </View>
                 </View>
                 
             );*/

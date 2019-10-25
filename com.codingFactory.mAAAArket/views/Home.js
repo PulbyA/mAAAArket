@@ -1,8 +1,6 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, ScrollView, Image, TouchableOpacity, Dimensions } from 'react-native';
-//import Navigation from './Navigation'
 const { width, height } = Dimensions.get('window');
-
 import CustomHeader from '../components/CustomHeader';
 import CustomFooter from '../components/CustomFooter';
 import Article from '../components/Article';
@@ -19,8 +17,7 @@ export default class Home extends React.Component {
         super(props);
         this.state={
             title: 'Accueil',
-            article: {},
-            articleData: []
+            article: []
         };
     };
 
@@ -37,20 +34,14 @@ export default class Home extends React.Component {
     }
 
     render () {
+        
         let arrayHomeWorks = Object.values(this.state.article);
+
             const allArticles = arrayHomeWorks.map((myArticle)=>{
-            /*this.addHomeWorkData(
-                myArticle["age"],
-                myArticle["desc"],
-                myArticle["img"],
-                myArticle["name"],
-                myArticle["nomVendeur"],
-                myArticle["prix"],
-                myArticle["sexe"],
-                myArticle["taille"],
-                myArticle["type"]);*/
-            return(
+
+                return(
                 <Article 
+                    id={myArticle["id"]}
                     productName={myArticle["name"]} 
                     description={myArticle["desc"]} 
                     type={myArticle["type"]} 
@@ -64,15 +55,13 @@ export default class Home extends React.Component {
             );
         })
         return (
-
-            <View style={styles.container}>                
-                <CustomHeader title={this.state.title} navigation={this.props.navigation}/>
-                <ScrollView>
-                    {allArticles}
-                </ScrollView>
-                
-
-                <CustomFooter style={styles.footer} navigation={this.props.navigation} />
+            
+            <View style={headerStyles.container}>
+                <CustomHeader title={'À propos'} navigation={this.props.navigation}/>            
+                    <ScrollView>
+                        {allArticles}
+                    </ScrollView>
+                <CustomFooter navigation={this.props.navigation}/>
             </View>
         )
     }
@@ -86,9 +75,10 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1,
         backgroundColor: '#fff',
-        // alignItems: 'center',
-        // justifyContent: 'center',
-        height: (height - 160)
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: (height - 160),
+        paddingTop: 40,
     },
     buttons: {
         marginBottom: 10 ,

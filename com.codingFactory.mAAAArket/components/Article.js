@@ -5,6 +5,7 @@ export default class Article extends React.Component{
     constructor(props){
         super(props);
         this.state={
+            id: this.props.id,
             productName: this.props.productName,
             description: this.props.description,
             type: this.props.type,
@@ -38,6 +39,7 @@ export default class Article extends React.Component{
                 title="Detail Article"
                 onPress={() => {
                     this.props.navigation.navigate('DetailArticle', {
+                        id: this.state.id,
                         name: this.state.productName,
                         description: this.state.description,
                         type: this.state.type,
