@@ -11,11 +11,14 @@ import NewUser from './Account/NewUser';
 
 import DetailArticle from './Article/DetailArticle';
 import NewArticle from './Article/NewArticle';
+import Panier from './Article/Panier';
+
+import CustomFooter from '../components/CustomFooter';
+import CustomHeader from '../components/CustomHeader';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import CustomFooter from '../components/CustomFooter';
-import CustomHeader from '../components/CustomHeader';
+
 
 const NavigationApp = createStackNavigator({
 
@@ -46,11 +49,14 @@ const NavigationApp = createStackNavigator({
     NewArticle: {
         screen: NewArticle,
     },
+    Panier: {
+        screen: Panier,
+    },
     CustomFooter: {
-        screen :CustomFooter,
+        screen: CustomFooter,
     },
     CustomHeader: {
-        screen :CustomHeader
+        screen: CustomHeader
     }
 });
 

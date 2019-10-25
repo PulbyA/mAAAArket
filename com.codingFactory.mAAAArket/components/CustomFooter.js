@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
+
 import { Header } from 'react-native-elements';
 import Navigation from '../views/Navigation'
 
@@ -35,7 +36,7 @@ export default class CustomFooter extends React.Component{
                     
                     centerComponent={
                         
-                        <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('NewArticle')} >
+                        <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Pay')} >
                         <Image style={styles.img_button}
                             source={require('../assets/header/panier.png')}
                         />

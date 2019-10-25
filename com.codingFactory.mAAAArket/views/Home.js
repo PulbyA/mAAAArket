@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, ScrollView, Image, TouchableOpacity, Dimensions } from 'react-native';
-import Navigation from './Navigation'
+
 const { width, height } = Dimensions.get('window');
 
+import Navigation from './Navigation'
 import CustomHeader from '../components/CustomHeader';
 import CustomFooter from '../components/CustomFooter';
 import Article from '../components/Article';
@@ -26,24 +27,24 @@ export default class Home extends React.Component {
 
         return (
 
-            <View style={styles.container}>                
+            <View>                
                 <CustomHeader 
                     Navigat={this.props.navigation.navigate('About')} 
                     Title={this.state.title} 
                 />
-
-                <Text style={styles.title}>Home</Text>
-                <ScrollView style={styles.articleFlex}>
-                    <Article productName="ProduitTest1" type="Test" sexe= "Apache Helicopter" 
-                        age= "Adulte" size= "L" vendorName= "invalidUsername" price="over 9000" 
-                    />
-                    <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
-                        age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
-                    />
-                    <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
-                        age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
-                    />
-                </ScrollView>
+                <View style={styles.container}> 
+                    <ScrollView style={styles.articleFlex}>
+                        <Article productName="ProduitTest1" type="Test" sexe= "Apache Helicopter" 
+                            age= "Adulte" size= "L" vendorName= "invalidUsername" price="over 9000" 
+                        />
+                        <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
+                            age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
+                        />
+                        <Article productName="Short sale" type="Pantalons" sexe= "Homme" 
+                            age= "Enfant" size= "10-12 ans" vendorName= "Gamin" price="500"
+                        />
+                    </ScrollView>
+                </View>
                 
 
                 <CustomFooter style={styles.footer}  />
@@ -63,9 +64,10 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1,
         backgroundColor: '#fff',
-        // alignItems: 'center',
-        // justifyContent: 'center',
-        height: (height - 160)
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: (height - 160),
+        paddingTop: 40,
     },
     buttons: {
         marginBottom: 10 ,

@@ -1,23 +1,24 @@
 import React from 'react';
 import { Button, StyleSheet, TextInput, Text, View, Image } from 'react-native';
+import Navigation from '../Navigation'
 import LignePanier from '../../components/LignePanier';
+import { connect } from 'react-redux'
 
-
-export default class Panier extends React.Component {
+class Panier extends React.Component {
     static navigatorOptions = {
         title: 'Panier',
     };
 
     render () {
-
-        const {navigate} = this.props.navigation;
-
         return (
             <View style={styles.container}>
-                <LignePanier/>
-                <LignePanier/>
+                <View style={styles.container_2}> 
+                </View>
+                <LignePanier 
+                    data={this.props.favoritesArticles} 
+                />
+                
             </View>
-            
         )
     }
 
@@ -31,7 +32,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
+    container: {
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     
     
 });
+
+const mapStateToProps = (state) => {
+    return {
+       favoritesArticles: state.favoritesArticles
+    }
+}
+
+export default connect(mapStateToProps)(Panier)

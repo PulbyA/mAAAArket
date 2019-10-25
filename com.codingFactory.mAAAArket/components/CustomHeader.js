@@ -15,7 +15,7 @@ export default class CustomHeader extends React.Component{
 
     render(){
 
-        const {navigate} = Navigation;
+        const {navigation} = Navigation;
 
         const {
             Navigat, 
@@ -29,7 +29,7 @@ export default class CustomHeader extends React.Component{
                         statusBarProps={{ barStyle: 'dark-content' }}
                         barStyle="dark-content"
                         leftComponent={
-                            <TouchableOpacity activeOpacity={0.5} onPress={() => Navigat}>
+                            <TouchableOpacity activeOpacity={0.5} onPress={() => this.props.navigation.navigate('About')}>
                             <Image style={styles.img_logo}
                                 source={require('../assets/header/logo_2.png')}
                             />
