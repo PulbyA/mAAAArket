@@ -94,7 +94,7 @@ export default class NewArticle extends React.Component {
                 return(
                     <Picker
                         selectedValue={this.state.taille}
-                        style={{height: 50, width: 180}}
+                        style={{width: 180}}
                         onValueChange={(itemValue, itemIndex) =>
                             this.setState({taille: itemValue})
                         }>
